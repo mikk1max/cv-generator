@@ -51,7 +51,11 @@ To set up the project, follow these steps:
     # or
     yarn install
     ```
-
+4. **Put details into .env file:**
+   ```bash
+   MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/<database>?retryWrites=true&w=majority
+   ```
+   
 ## Running the Project
 
 To run the project, you need to start both the client and server. Follow these instructions:
