@@ -1,0 +1,236 @@
+/* Container styles */
+.main_container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* Horizontal alignment */
+  padding: 80px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .main_container {
+    flex-direction: row;
+    align-items: stretch; /* Vertical alignment */
+  }
+
+  .centerSide {
+    width: 68%;
+    height: calc(100vh - 160px); /* Adjust height */
+    align-items: flex-start; /* Adjust for larger screens */
+  }
+}
+
+/* Side containers */
+.leftSide,
+.centerSide,
+.rightSideMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.leftSide {
+  background-color: #ffffff;
+  border-radius: 10px 0 0 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+
+.footer {
+  margin-top: auto;
+  width: 100%;
+}
+
+.centerSide {
+  background-color: #71e1ef;
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  overflow-y: auto;
+}
+
+.rightSideMenu {
+  background-color: #71e1ef;
+  border-radius: 0 10px 10px 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .leftSide {
+    width: 25%;
+    height: calc(100vh - 160px);
+  }
+
+  .centerSide {
+    width: 68%;
+    height: calc(100vh - 160px); /* Adjust height */
+  }
+
+  .rightSideMenu {
+    width: 7%;
+    height: calc(100vh - 160px);
+  }
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.white_btn {
+  border: none;
+  outline: none;
+  padding: 12px 24px;
+  background-color: white;
+  border-radius: 20px;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  cursor: pointer;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #71e1ef;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.white_btn:hover {
+  background-color: #71e1ef;
+  color: white;
+}
+
+@media (max-width: 767px) {
+  .leftSide,
+  .centerSide,
+  .rightSideMenu {
+    border-radius: 10px;
+    margin: 10px 0;
+    padding: 20px;
+  }
+
+  .leftSide {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .rightSideMenu {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .white_btn {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* Center horizontally */
+  padding: 20px; /* Adjust padding as needed */
+  margin: 0 auto; /* Center horizontally */
+  height: 100%; /* Align vertically to occupy full height */
+}
+
+.profile_image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.user_info {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.social_media {
+  margin-top: 10px;
+}
+
+.social_media a {
+  color: #71e1ef;
+  font-size: 24px;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.social_media a:hover {
+  color: #2a7a6d;
+}
+
+.download_cv_btn,
+.submit_cv_btn {
+  border: none;
+  outline: none;
+  padding: 12px 24px;
+  background-color: #71e1ef;
+  color: white;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: auto;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.download_cv_btn:hover,
+.submit_cv_btn:hover {
+  background-color: #2a7a6d;
+}
+
+.welcomeSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.white_btn_welcome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px; /* Adjust icon size as needed */
+  width: 40%; /* Adjust button size as needed */
+  height: 40%; /* Adjust button size as needed */
+  border-radius: 20%; /* Make button circular */
+  background-color: #ffffff; /* Adjust background color */
+  border: 5px dashed; /* Adjust border color */
+  cursor: pointer;
+  color: #71e1ef;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-top: 120px;
+  margin-bottom: 0;
+}
+
+.white_btn_welcome:hover {
+  background-color: #71e1ef;
+  color: white;
+}
+
+.addEditWelcome {
+  color: white;
+  font-size: 50px;
+}
