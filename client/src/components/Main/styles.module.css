@@ -1,30 +1,48 @@
-/* Container styles */
+/* ============================= */
+/* Global Styles */
+/* ============================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f5f5f5;
+  font-family: sans-serif;
+}
+
+/* ============================= */
+/* Main Container */
+/* ============================= */
 .main_container {
   width: 100%;
-  min-height: 100vh;
   background-color: #f5f5f5;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between; /* Horizontal alignment */
-  padding: 80px;
-  box-sizing: border-box;
+  justify-content: space-between;
+  padding: 40px;
+  opacity: 0.8;
+  background-image: linear-gradient(#71e1ef 2.4px, transparent 2.4px),
+    linear-gradient(to right, #71e1ef 2.4px, #e1ecee 2.4px);
+  background-size: 48px 48px;
 }
 
 @media (min-width: 768px) {
   .main_container {
     flex-direction: row;
-    align-items: stretch; /* Vertical alignment */
-  }
-
-  .centerSide {
-    width: 68%;
-    height: calc(100vh - 160px); /* Adjust height */
-    align-items: flex-start; /* Adjust for larger screens */
+    align-items: stretch;
   }
 }
 
-/* Side containers */
+@media (min-width: 1024px) {
+  .main_container {
+    padding: 80px;
+  }
+}
+
+/* ============================= */
+/* Layout Sections */
+/* ============================= */
 .leftSide,
 .centerSide,
 .rightSideMenu {
@@ -32,89 +50,65 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-sizing: border-box;
+  box-shadow: inset 0px 0px 100px -20px rgba(113, 225, 239, 1);
 }
 
 .leftSide {
   background-color: #ffffff;
   border-radius: 10px 0 0 10px;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
   height: 100%;
-}
-
-.footer {
-  margin-top: auto;
-  width: 100%;
 }
 
 .centerSide {
   background-color: #71e1ef;
   flex: 1;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 20px 0 20px 20px;
   justify-content: space-evenly;
   overflow-y: auto;
+  scrollbar-color: #71e1ef #f5f5f5;
+  text-align: center;
 }
 
 .rightSideMenu {
   background-color: #71e1ef;
   border-radius: 0 10px 10px 0;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
+/* Footer */
+.footer {
+  margin-top: auto;
+  width: 100%;
+}
+
+/* Responsive Layout */
 @media (min-width: 768px) {
   .leftSide {
-    width: 25%;
+    width: calc(100% / 4);
+    min-width: 250px;
     height: calc(100vh - 160px);
   }
 
   .centerSide {
-    width: 68%;
-    height: calc(100vh - 160px); /* Adjust height */
+    width: 100%;
+    height: calc(100vh - 160px);
   }
 
   .rightSideMenu {
-    width: 7%;
+    width: 100px;
     height: calc(100vh - 160px);
   }
 }
 
+/* ============================= */
+/* Navbar */
+/* ============================= */
 .navbar {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.white_btn {
-  border: none;
-  outline: none;
-  padding: 12px 24px;
-  background-color: white;
-  border-radius: 20px;
-  width: 60px;
-  height: 60px;
-  font-size: 24px;
-  cursor: pointer;
-  margin: 10px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #71e1ef;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.white_btn:hover {
-  background-color: #71e1ef;
-  color: white;
 }
 
 @media (max-width: 767px) {
@@ -123,7 +117,8 @@
   .rightSideMenu {
     border-radius: 10px;
     margin: 10px 0;
-    padding: 20px;
+    padding: 10px;
+    min-width: 310px;
   }
 
   .leftSide {
@@ -136,6 +131,79 @@
     border-bottom-right-radius: 10px;
   }
 
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+  }
+}
+
+/* ============================= */
+/* Buttons */
+/* ============================= */
+.white_btn {
+  border: none;
+  padding: 12px 24px;
+  background-color: white;
+  border-radius: 20px;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #71e1ef;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 10px 0;
+}
+
+.white_btn:hover {
+  background-color: #71e1ef;
+  color: white;
+}
+
+.download_cv_btn,
+.submit_cv_btn {
+  border: none;
+  padding: 12px 24px;
+  background-color: #71e1ef;
+  color: white;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: auto;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.download_cv_btn:hover,
+.submit_cv_btn:hover {
+  background-color: #2a7a6d;
+}
+
+.white_btn_welcome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
+  border-radius: 20%;
+  background-color: #ffffff;
+  border: 5px dashed;
+  cursor: pointer;
+  color: #71e1ef;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-bottom: 0;
+  padding: 5vw;
+}
+
+.white_btn_welcome:hover {
+  background-color: #71e1ef;
+  color: white;
+}
+
+/* Responsive Button Styles */
+@media (max-width: 767px) {
   .white_btn {
     width: 50px;
     height: 50px;
@@ -143,20 +211,23 @@
   }
 }
 
+/* ============================= */
+/* Profile Section */
+/* ============================= */
 .profile {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center; /* Center horizontally */
-  padding: 20px; /* Adjust padding as needed */
-  margin: 0 auto; /* Center horizontally */
-  height: 100%; /* Align vertically to occupy full height */
+  text-align: center;
+  padding: 20px;
+  margin: 0 auto;
+  height: 100%;
 }
 
 .profile_image {
-  width: 100px;
-  height: 100px;
+  width: 10rem;
+  height: 10rem;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 20px;
@@ -182,25 +253,9 @@
   color: #2a7a6d;
 }
 
-.download_cv_btn,
-.submit_cv_btn {
-  border: none;
-  outline: none;
-  padding: 12px 24px;
-  background-color: #71e1ef;
-  color: white;
-  border-radius: 20px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: auto;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.download_cv_btn:hover,
-.submit_cv_btn:hover {
-  background-color: #2a7a6d;
-}
-
+/* ============================= */
+/* Welcome Section */
+/* ============================= */
 .welcomeSection {
   display: flex;
   flex-direction: column;
@@ -208,29 +263,8 @@
   justify-content: center;
 }
 
-.white_btn_welcome {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 100px; /* Adjust icon size as needed */
-  width: 40%; /* Adjust button size as needed */
-  height: 40%; /* Adjust button size as needed */
-  border-radius: 20%; /* Make button circular */
-  background-color: #ffffff; /* Adjust background color */
-  border: 5px dashed; /* Adjust border color */
-  cursor: pointer;
-  color: #71e1ef;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  margin-top: 120px;
-  margin-bottom: 0;
-}
-
-.white_btn_welcome:hover {
-  background-color: #71e1ef;
-  color: white;
-}
-
 .addEditWelcome {
   color: white;
-  font-size: 50px;
+  font-size: 3.5vw;
+  margin: 0;
 }

@@ -6,6 +6,16 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   box-sizing: border-box;
+  text-align: left;
+}
+
+.form_group_inline {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form_group {
+  width: 100%;
 }
 
 .cv_form h3 {
@@ -19,7 +29,7 @@
 }
 
 .cv_section {
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .cv_section h4 {
@@ -36,7 +46,7 @@
 .cv_form textarea,
 .cv_form select {
   padding: 10px;
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
@@ -50,6 +60,7 @@
 
 .cv_form .date_fields {
   display: flex;
+  flex-direction: column;
   width: 100%;
 }
 
@@ -59,13 +70,16 @@
 
 .cv_form button[type="submit"] {
   margin-top: 10px;
-  align-self: flex-start;
+  /* align-self: flex-start; */
+  /* width: 25%; */
+  font-size: 1.5rem;
   padding: 12px 24px;
   background-color: #71e1ef;
   color: white;
   border: none;
   border-radius: 20px;
   cursor: pointer;
+  margin: 0 auto;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -74,7 +88,6 @@
 }
 
 .remove_button {
-  margin-top: 10px;
   padding: 8px 12px;
   background-color: #f32c2c;
   color: white;
@@ -89,7 +102,6 @@
 }
 
 .add_button {
-  margin-top: 10px;
   padding: 8px 12px;
   background-color: #71e1ef;
   color: white;
@@ -115,18 +127,18 @@
 @media (min-width: 768px) {
   .cv_form {
     margin: 0 auto;
-    max-width: 600px; /* Adjust max-width as needed */
+    max-width: 600px;
   }
 }
 
 @media (min-width: 1024px) {
   .cv_form {
-    max-width: 800px; /* Adjust max-width as needed */
+    max-width: 800px;
   }
 }
 
 @media (min-width: 1200px) {
   .cv_form {
-    max-width: 1000px; /* Adjust max-width as needed */
+    max-width: 1000px;
   }
 }

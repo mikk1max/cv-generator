@@ -32,8 +32,8 @@ To set up the project, follow these steps:
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/mikk1max/szpr_prpject.git
-    cd szpr_prpject
+    git clone https://github.com/mikk1max/cv-generator.git
+    cd cv-generator
     ```
 
 2. **Install dependencies for the server:**
@@ -53,7 +53,9 @@ To set up the project, follow these steps:
     ```
 4. **Put details into .env file:**
    ```bash
-   MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/<database>?retryWrites=true&w=majority
+   DB=mongodb+srv://<username>:<password>@cluster0.mongodb.net/<database>?retryWrites=true&w=majority
+   JWTPRIVATEKEY=privatekey
+   SALT=10
    ```
    
 ## Running the Project

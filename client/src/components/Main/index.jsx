@@ -178,14 +178,64 @@ const Main = () => {
 
   const downloadCV = () => {
     console.log("Download CV button clicked");
-    const cvElement = document.querySelector(`.${styles.cvContainer}`);
+    const cvElement = document.querySelector("#cvContainer");
+
     if (cvElement) {
       console.log("CV container found");
-      html2canvas(cvElement)
+
+      html2canvas(cvElement, { scale: 2 })
         .then((canvas) => {
           const imgData = canvas.toDataURL("image/png");
-          const pdf = new jsPDF();
-          pdf.addImage(imgData, "PNG", 0, 0);
+          const pdf = new jsPDF("p", "mm", "a4");
+
+          const pdfWidth = pdf.internal.pageSize.getWidth();
+          const pdfHeight = pdf.internal.pageSize.getHeight();
+
+          const marginTop = 10; // Top margin
+          const marginBottom = 10; // Bottom margin
+          const contentHeight = pdfHeight - marginTop - marginBottom; // Available height for content
+
+          const imgWidth = canvas.width;
+          const imgHeight = canvas.height;
+
+          const ratio = pdfWidth / imgWidth; // Scale ratio
+          const scaledHeight = imgHeight * ratio;
+
+          let yPos = 0;
+
+          while (yPos < scaledHeight) {
+            const sectionCanvas = document.createElement("canvas");
+            sectionCanvas.width = canvas.width;
+            sectionCanvas.height = (contentHeight / pdfWidth) * canvas.width;
+            const ctx = sectionCanvas.getContext("2d");
+
+            ctx.drawImage(
+              canvas,
+              0,
+              yPos / ratio,
+              canvas.width,
+              sectionCanvas.height,
+              0,
+              0,
+              sectionCanvas.width,
+              sectionCanvas.height
+            );
+
+            const sectionImgData = sectionCanvas.toDataURL("image/png");
+
+            if (yPos > 0) pdf.addPage();
+            pdf.addImage(
+              sectionImgData,
+              "PNG",
+              0,
+              marginTop,
+              pdfWidth,
+              contentHeight
+            );
+
+            yPos += sectionCanvas.height * ratio;
+          }
+
           pdf.save("CV.pdf");
         })
         .catch((error) => {
@@ -220,7 +270,15 @@ const Main = () => {
               </a>
             </div>
             <br />
-            <button className={styles.download_cv_btn} onClick={downloadCV}>
+            <button
+              className={styles.download_cv_btn}
+              onClick={
+                downloadCV ??
+                console.log(
+                  "Download CV button clicked but you are not at the CV page."
+                )
+              }
+            >
               Download CV
             </button>
           </div>
@@ -232,7 +290,14 @@ const Main = () => {
       <div className={styles.centerSide}>
         {currentView === "home" ? (
           !showCVForm ? (
-            <>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: "5vw",
+              }}
+            >
               <button
                 className={styles.white_btn_welcome}
                 onClick={() => setShowCVForm(true)}
@@ -240,7 +305,7 @@ const Main = () => {
                 <i className="fas fa-plus"></i>
               </button>
               <h3 className={styles.addEditWelcome}>Add/Edit your data</h3>
-            </>
+            </div>
           ) : (
             <CVForm onSubmit={handleCVFormSubmit} />
           )
