@@ -23,7 +23,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const url = `${
-        process.env.BACKEND_URL || "http://localhost:8080"
+        process.env.REACT_APP_BACKEND_URL || "http://localhost:8080"
       }/api/auth/signup`;
       const { data: res } = await axios.post(url, data);
       navigate("/login");

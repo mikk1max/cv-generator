@@ -38,7 +38,7 @@ const Main = () => {
     try {
       const response = await axios.get(
         `${
-          process.env.BACKEND_URL || "http://localhost:8080"
+          process.env.REACT_APP_BACKEND_URL || "http://localhost:8080"
         }/api/users/details`,
         {
           headers: {
@@ -88,7 +88,7 @@ const Main = () => {
         const config = {
           method: "get",
           url: `${
-            process.env.BACKEND_URL || "http://localhost:8080"
+            process.env.REACT_APP_BACKEND_URL || "http://localhost:8080"
           }/api/users`,
           headers: {
             "Content-Type": "application/json",
@@ -117,7 +117,7 @@ const Main = () => {
         const config = {
           method: "get",
           url: `${
-            process.env.BACKEND_URL || "http://localhost:8080"
+            process.env.REACT_APP_BACKEND_URL || "http://localhost:8080"
           }/api/users/details`,
           headers: {
             "Content-Type": "application/json",
@@ -150,7 +150,7 @@ const Main = () => {
         const config = {
           method: "delete",
           url: `${
-            process.env.BACKEND_URL || "http://localhost:8080"
+            process.env.REACT_APP_BACKEND_URL || "http://localhost:8080"
           }/api/users/delete-account`,
           headers: {
             "Content-Type": "application/json",

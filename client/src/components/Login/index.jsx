@@ -15,7 +15,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const url = `${
-        process.env.BACKEND_URL || "http://localhost:8080"
+        process.env.REACT_APP_BACKEND_URL || "http://localhost:8080"
       }/api/auth/login`;
       const { data: res } = await axios.post(url, data);
       localStorage.setItem("token", res.data);

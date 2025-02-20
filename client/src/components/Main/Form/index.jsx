@@ -38,7 +38,7 @@ const CVForm = ({ onSubmit }) => {
 
       try {
         const response = await axios.get(
-          `${process.env.BACKEND_URL || "http://localhost:8080"}/api/users/cv`,
+          `${process.env.REACT_APP_BACKEND_URL || "http://localhost:8080"}/api/users/cv`,
           {
             headers: { "x-access-token": token },
           }
@@ -183,7 +183,7 @@ const CVForm = ({ onSubmit }) => {
       const config = {
         method: "put",
         url: `${
-          process.env.BACKEND_URL || "http://localhost:8080"
+          process.env.REACT_APP_BACKEND_URL || "http://localhost:8080"
         }/api/users/update-cv`,
         headers: {
           "Content-Type": "application/json",
