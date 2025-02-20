@@ -14,7 +14,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const url = "http://localhost:8080/api/auth/login"
+            const url = "https://cv-generator-f06w.onrender.com/api/auth/login"
             const { data: res } = await axios.post(url, data)
             localStorage.setItem("token", res.data)
             window.location = "/" // Przekierowanie po udanym zalogowaniu

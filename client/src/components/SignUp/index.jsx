@@ -22,7 +22,7 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const url = "http://localhost:8080/api/auth/signup"; // Upewnij się, że adres URL jest poprawny
+            const url = "https://cv-generator-f06w.onrender.com/api/auth/signup"; // Upewnij się, że adres URL jest poprawny
             const { data: res } = await axios.post(url, data);
             navigate("/login");
             console.log(res.message);

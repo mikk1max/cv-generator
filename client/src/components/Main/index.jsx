@@ -37,7 +37,7 @@ const Main = () => {
   const fetchUserProfile = async (token) => {
     try {
       const response = await axios.get(
-        "http://localhost:8080/api/users/details",
+        "https://cv-generator-f06w.onrender.com/api/users/details",
         {
           headers: {
             "Content-Type": "application/json",
@@ -85,7 +85,7 @@ const Main = () => {
       try {
         const config = {
           method: "get",
-          url: "http://localhost:8080/api/users",
+          url: "https://cv-generator-f06w.onrender.com/api/users",
           headers: {
             "Content-Type": "application/json",
             "x-access-token": token,
@@ -112,7 +112,7 @@ const Main = () => {
       try {
         const config = {
           method: "get",
-          url: "http://localhost:8080/api/users/details",
+          url: "https://cv-generator-f06w.onrender.com/api/users/details",
           headers: {
             "Content-Type": "application/json",
             "x-access-token": token,
@@ -143,7 +143,7 @@ const Main = () => {
       try {
         const config = {
           method: "delete",
-          url: "http://localhost:8080/api/users/delete-account",
+          url: "https://cv-generator-f06w.onrender.com/api/users/delete-account",
           headers: {
             "Content-Type": "application/json",
             "x-access-token": token,

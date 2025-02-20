@@ -37,7 +37,7 @@ const CVForm = ({ onSubmit }) => {
       }
 
       try {
-        const response = await axios.get("http://localhost:8080/api/users/cv", {
+        const response = await axios.get("https://cv-generator-f06w.onrender.com/api/users/cv", {
           headers: { "x-access-token": token },
         });
 
@@ -179,7 +179,7 @@ const CVForm = ({ onSubmit }) => {
     try {
       const config = {
         method: "put",
-        url: "http://localhost:8080/api/users/update-cv",
+        url: "https://cv-generator-f06w.onrender.com/api/users/update-cv",
         headers: {
           "Content-Type": "application/json",
           "x-access-token": token,
