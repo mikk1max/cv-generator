@@ -37,9 +37,12 @@ const CVForm = ({ onSubmit }) => {
       }
 
       try {
-        const response = await axios.get("https://cv-generator-f06w.onrender.com/api/users/cv", {
-          headers: { "x-access-token": token },
-        });
+        const response = await axios.get(
+          `${process.env.BACKEND_URL || "http://localhost:8080"}/api/users/cv`,
+          {
+            headers: { "x-access-token": token },
+          }
+        );
 
         if (response.status === 200) {
           const cvData = response.data.data;
@@ -179,7 +182,9 @@ const CVForm = ({ onSubmit }) => {
     try {
       const config = {
         method: "put",
-        url: "https://cv-generator-f06w.onrender.com/api/users/update-cv",
+        url: `${
+          process.env.BACKEND_URL || "http://localhost:8080"
+        }/api/users/update-cv`,
         headers: {
           "Content-Type": "application/json",
           "x-access-token": token,
@@ -234,7 +239,10 @@ const CVForm = ({ onSubmit }) => {
       </button>
       <form onSubmit={handleSubmit}>
         {/* Personal Information Section */}
-        <div className={styles.cv_section} style={{ display: "flex",  flexDirection: "column", gap: 20 }}>
+        <div
+          className={styles.cv_section}
+          style={{ display: "flex", flexDirection: "column", gap: 20 }}
+        >
           {/* <h4>Personal Information</h4> */}
           <div
             style={{
@@ -317,7 +325,10 @@ const CVForm = ({ onSubmit }) => {
         </div>
 
         {/* Address Section */}
-        <div className={styles.cv_section} style={{ display: "flex",  flexDirection: "column", gap: 20 }}>
+        <div
+          className={styles.cv_section}
+          style={{ display: "flex", flexDirection: "column", gap: 20 }}
+        >
           {/* <h4>Address</h4> */}
           <div
             style={{
@@ -446,7 +457,7 @@ const CVForm = ({ onSubmit }) => {
           </div>
 
           {formData.educationFrom.map((_, index) => (
-            <div key={index} className={styles.date_fields} style={{gap: 20}}>
+            <div key={index} className={styles.date_fields} style={{ gap: 20 }}>
               <div className={styles.form_group}>
                 <label htmlFor={`educationFrom-${index}`}>From</label>
                 <input
@@ -546,9 +557,20 @@ const CVForm = ({ onSubmit }) => {
             <div style={{ flex: 1, height: "1px", backgroundColor: "#ccc" }} />
           </div>
 
-  <div style={{ display: "flex", flexDirection: "column", gap: "20px", marginBottom: 20 }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "20px",
+              marginBottom: 20,
+            }}
+          >
             {formData.workFrom.map((_, index) => (
-              <div key={index} className={styles.date_fields} style={{gap: "20px"}}>
+              <div
+                key={index}
+                className={styles.date_fields}
+                style={{ gap: "20px" }}
+              >
                 <div className={styles.form_group}>
                   <label htmlFor={`workFrom-${index}`}>From</label>
                   <input
@@ -610,7 +632,7 @@ const CVForm = ({ onSubmit }) => {
                 </div>
               </div>
             ))}
-  </div>
+          </div>
 
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <button
@@ -651,9 +673,20 @@ const CVForm = ({ onSubmit }) => {
         {/* Skills Section */}
         <div className={styles.cv_section}>
           <h4>Skills</h4>
-          <div style={{ display: "flex", flexDirection: "column", gap: "20px", marginBottom: 20 }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "20px",
+              marginBottom: 20,
+            }}
+          >
             {formData.skills.map((skill, index) => (
-              <div key={index} className={styles.form_group} style={{display: "flex", justifyContent: "center"}}>
+              <div
+                key={index}
+                className={styles.form_group}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
                 <input
                   type="text"
                   className={styles.input_field}
@@ -682,9 +715,20 @@ const CVForm = ({ onSubmit }) => {
         {/* Languages Section */}
         <div className={styles.cv_section}>
           <h4>Languages</h4>
-          <div style={{ display: "flex", flexDirection: "column", gap: "20px", marginBottom: 20 }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "20px",
+              marginBottom: 20,
+            }}
+          >
             {formData.languages.map((language, index) => (
-              <div key={index} className={styles.form_group} style={{display: "flex", justifyContent: "center"}}>
+              <div
+                key={index}
+                className={styles.form_group}
+                style={{ display: "flex", justifyContent: "center" }}
+              >
                 <input
                   type="text"
                   className={styles.input_field}
