@@ -100,3 +100,68 @@
   color: white;
   margin: 10px;
 }
+
+@media (max-width: 900px) {
+  .login_form_container {
+    flex-direction: column;
+    height: auto;
+    width: 90%;
+  }
+
+  .left,
+  .right {
+    flex: unset;
+    width: 100%;
+    border-radius: 0;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
+    padding: 30px 0;
+  }
+
+  .right {
+    border-radius: 0;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+  }
+
+  .input,
+  .error_msg {
+    width: 90%;
+    max-width: 370px;
+  }
+
+  .form_container h1,
+  .right h1 {
+    font-size: 32px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .login_container {
+    padding: 20px 10px;
+  }
+
+  .input,
+  .error_msg {
+    width: 100%;
+    font-size: 16px;
+  }
+
+    .left,
+  .right {
+    padding: 20px 0;
+  }
+
+  .form_container h1,
+  .right h1 {
+    font-size: 24px;
+  }
+
+  .white_btn,
+  .green_btn {
+    width: 270px;
+  }
+}

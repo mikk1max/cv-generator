@@ -1,7 +1,7 @@
 .usersContainer {
   width: 100%;
   gap: 20px;
-  display: flex; 
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
@@ -34,7 +34,7 @@
   .usersContainer {
     width: 100%;
     gap: 10px;
-    display: flex; 
+    display: flex;
     flex-direction: column;
   }
 
@@ -160,63 +160,63 @@ p {
     text-align: left;
     font-size: 0.8rem;
   }
-  
+
   .header {
     display: flex;
     align-items: center;
   }
-  
+
   .profileImageContainer {
     flex: 0 0 auto;
     margin-right: 20px;
   }
-  
+
   .headerInfo {
     flex: 1;
     display: flex;
     flex-direction: column;
     gap: 4px;
   }
-  
+
   .fullName {
     margin: 0;
     font-size: 1rem;
     font-weight: bold;
   }
-  
+
   .jobPosition {
     font-size: 0.8rem;
   }
-  
+
   .email {
     font-size: 0.6rem;
   }
-  
+
   .gender {
     font-size: 0.8rem;
     color: #666;
   }
-  
+
   .divider {
     /* margin-top: 20px; */
     border: 1px solid #ccc;
   }
-  
+
   .section {
     margin-top: 20px;
   }
-  
+
   .sectionTitle {
     margin-bottom: 10px;
     font-size: 1rem;
     font-weight: bold;
   }
-  
+
   ul {
     margin: 0;
     padding-left: 20px;
   }
-  
+
   p {
     margin: 0;
   }
@@ -227,4 +227,24 @@ p {
     border-radius: 50%;
     object-fit: cover;
   }
+}
+
+.loadMoreButton {
+  font-size: large;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  color: black;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.loadMoreButton:hover {
+  background-color: #8be5f0;
+  border: 2px solid white;
+  color: white;
 }
