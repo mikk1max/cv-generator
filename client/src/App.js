@@ -5,7 +5,6 @@ import Login from "./components/Login";
 
 function App() {
   const userToken = localStorage.getItem("token");
-  console.log("User token:", userToken);
 
   return (
     <Routes>

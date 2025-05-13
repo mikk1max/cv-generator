@@ -38,7 +38,9 @@ const CVForm = ({ onSubmit }) => {
 
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL || "http://localhost:8080"}/api/users/cv`,
+          `${
+            process.env.REACT_APP_BACKEND_URL || "http://localhost:8080"
+          }/api/users/cv`,
           {
             headers: { "x-access-token": token },
           }
@@ -204,32 +206,35 @@ const CVForm = ({ onSubmit }) => {
     }
   };
 
-  const fillWithRandomData = () => {
-    const randomData = {
-      firstName: "John",
-      lastName: "Doe",
-      dateOfBirth: "1990-01-01",
-      jobPosition: "Software Developer",
-      street: "123 Main St",
-      buildingNumber: "45",
-      apartmentNumber: "301",
-      postalCode: "12-345",
-      city: "New York",
-      country: "USA",
-      educationFrom: "2010-09-01",
-      educationTo: "2014-06-01",
-      educationPlace: "University of Example",
-      educationField: "Computer Science",
-      workFrom: "2015-07-01",
-      workTo: "2020-12-31",
-      workPlace: "Tech Company",
-      skills: ["JavaScript", "React", "Node.js"],
-      languages: ["English", "Spanish"],
-      interests: "Reading, Traveling",
-    };
+const isEmpty = (val) => val === "" || val === "-" || val == null;
+const isArrayEmpty = (arr) => !Array.isArray(arr) || arr.length === 0 || isEmpty(arr[0]);
 
-    setFormData(randomData);
-  };
+const fillWithRandomData = () => {
+  setFormData((prevData) => ({
+    ...prevData,
+    firstName: isEmpty(prevData.firstName) ? "John" : prevData.firstName,
+    lastName: isEmpty(prevData.lastName) ? "Doe" : prevData.lastName,
+    dateOfBirth: isEmpty(prevData.dateOfBirth) ? "1990-01-01" : prevData.dateOfBirth,
+    jobPosition: isEmpty(prevData.jobPosition) ? "Software Developer" : prevData.jobPosition,
+    street: isEmpty(prevData.street) ? "123 Main St" : prevData.street,
+    buildingNumber: isEmpty(prevData.buildingNumber) ? "45" : prevData.buildingNumber,
+    apartmentNumber: isEmpty(prevData.apartmentNumber) ? "301" : prevData.apartmentNumber,
+    postalCode: isEmpty(prevData.postalCode) ? "12-345" : prevData.postalCode,
+    city: isEmpty(prevData.city) ? "New York" : prevData.city,
+    country: isEmpty(prevData.country) ? "USA" : prevData.country,
+    educationFrom: isArrayEmpty(prevData.educationFrom) ? ["2010-09-01"] : prevData.educationFrom,
+    educationTo: isArrayEmpty(prevData.educationTo) ? ["2014-06-01"] : prevData.educationTo,
+    educationPlace: isArrayEmpty(prevData.educationPlace) ? ["University of Example"] : prevData.educationPlace,
+    educationField: isArrayEmpty(prevData.educationField) ? ["Computer Science"] : prevData.educationField,
+    workFrom: isArrayEmpty(prevData.workFrom) ? ["2015-07-01"] : prevData.workFrom,
+    workTo: isArrayEmpty(prevData.workTo) ? ["2020-12-31"] : prevData.workTo,
+    workPlace: isArrayEmpty(prevData.workPlace) ? ["Tech Company"] : prevData.workPlace,
+    skills: isArrayEmpty(prevData.skills) ? ["JavaScript", "React", "Node.js"] : prevData.skills,
+    languages: isArrayEmpty(prevData.languages) ? ["English", "Spanish"] : prevData.languages,
+    interests: isEmpty(prevData.interests) ? "Reading, Traveling" : prevData.interests,
+  }));
+};
+
 
   return (
     <div className={styles.cv_form}>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import clsx from "clsx";
 import { useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
 import Users from "../Users/Users";
@@ -57,9 +58,6 @@ const Main = () => {
       setUserName(`${userData.firstName} ${userData.lastName}`);
       setJobPosition(userData.jobPosition || "");
       setLoggedInUserId(userData._id);
-
-      console.log("User Data: ", userData);
-      console.log("Work Position: ", userData.workExperience?.position);
     } catch (error) {
       handleErrors(error);
     }
@@ -189,8 +187,6 @@ const Main = () => {
     const cvElement = document.querySelector("#cvContainer");
 
     if (cvElement) {
-      console.log("CV container found");
-
       html2canvas(cvElement, { scale: 2 })
         .then((canvas) => {
           const imgData = canvas.toDataURL("image/png");
@@ -250,9 +246,11 @@ const Main = () => {
           console.error("Error generating PDF: ", error);
         });
     } else {
-      console.error("CV container not found.");
+      toast.error("CV is not found");
     }
   };
+
+  const cvElement = document.querySelector("#cvContainer");
 
   return (
     <div className={styles.main_container}>
@@ -279,13 +277,20 @@ const Main = () => {
             </div>
             <br />
             <button
-              className={styles.download_cv_btn}
-              onClick={
-                downloadCV ??
-                console.log(
-                  "Download CV button clicked but you are not at the CV page."
-                )
-              }
+              className={clsx(
+                styles.download_cv_btn,
+                currentView !== "userDetails" && styles["btn-disabled"]
+              )}
+              onClick={(e) => {
+                e.preventDefault();
+
+                if (currentView !== "userDetails") {
+                  toast.error("Please navigate to your CV page before downloading.");
+                  return;
+                } else {
+                  downloadCV();
+                }
+              }}
             >
               Download CV
             </button>
